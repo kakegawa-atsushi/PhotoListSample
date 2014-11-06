@@ -12,7 +12,7 @@ import Photos
 class AssetService {
     
     func fetchImageAssetsWithCompletion(completion: [PHAsset] -> Void) {
-        dispatch_async(dispatch_get_global_queue(NSQualityOfService.UserInitiated.toRaw(), 0)) {
+        dispatch_async(dispatch_get_global_queue(NSQualityOfService.UserInitiated.rawValue, 0)) {
             var assets = [PHAsset]()
             
             let fetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: nil)

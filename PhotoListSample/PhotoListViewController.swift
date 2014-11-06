@@ -43,7 +43,7 @@ class PhotoListViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = self.collectionView?
+        let cell = self.collectionView
             .dequeueReusableCellWithReuseIdentifier(CellIdentifier.ImageCell, forIndexPath: indexPath) as CollectionViewImageCell
         
         if let asset = self.assets?[indexPath.item] {
@@ -68,7 +68,7 @@ class PhotoListViewController: UICollectionViewController {
     private func loadAssets() {
         assetService.fetchImageAssetsWithCompletion { assets in
             self.assets = assets
-            self.collectionView?.reloadData()
+            self.collectionView.reloadData()
         }
     }
 }
